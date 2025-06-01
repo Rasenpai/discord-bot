@@ -438,6 +438,9 @@ async def cat_fact(interaction: discord.Interaction):
         await interaction.followup.send(embed=embed, ephemeral=True)
 
 
+wether_api = os.getenv("WEATHER_API")
+
+
 # WEATHER API Command (OpenWeatherMap - dengan API key aktif)
 @bot.tree.command(name="weather", description="Cek cuaca di kota tertentu")
 async def weather_info(interaction: discord.Interaction, kota: str):
@@ -445,7 +448,7 @@ async def weather_info(interaction: discord.Interaction, kota: str):
 
     try:
         # API OpenWeatherMap dengan API key yang sudah ada
-        weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={kota}&appid=20948314ac3dee57aa88e101d2507a89&units=metric&lang=id"
+        weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={kota}&appid={wether_api}&units=metric&lang=id"
 
         # Fetch data cuaca
         weather_data = await fetch_api(weather_url)
