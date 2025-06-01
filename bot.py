@@ -4,7 +4,6 @@ from discord import app_commands
 import random
 import re
 import math
-from PIL import Image, ImageDraw, ImageFont
 import io
 import aiohttp
 import asyncio
